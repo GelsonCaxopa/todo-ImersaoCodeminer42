@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+   
     <script type="text/javascript" src="./src/scripts/teste.js"></script>
+    
     <button class="back-button" onclick="window.location.href='home_page.html'" >
         <i class="fas fa-angle-left"></i>
     </button>
+    
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,25 +18,20 @@
             src="https://kit.fontawesome.com/e7ebc2fc39.js"
             crossorigin="anonymous"
     ></script>
+    
     <title>Lista de Todos</title>
-</head>
-<body> 
-    <div class="container">
 
-        
-       <table class="bordered striped centered highlight responsive-table">
-            <thead>
-                <tr>
-                    <th>Descrição</th>
-                    <th>Data de criação</th>
-                    <th>Data de Deadline</th>
-                    <th>Tag</th>
-                </tr>
-            </thead>
-            <tbody class="todo-list">
-                
-            </tbody>
-        </table>
+</head>
+<body onload="Listar()"> 
+    <header><h1>LISTA DE TODOS</h1></header>
+             
+     
+    <div class='container'>
+        <table id="todo-list" class="">
+        </table> 
+    </div>
+
+    
     </div>
 </body>
 
