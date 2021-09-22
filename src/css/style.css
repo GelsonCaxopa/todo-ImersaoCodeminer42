@@ -100,9 +100,8 @@ button:hover {
 
 
 /* Parte retirada do Materialize css para a tabela e alterado para estar dentro do style padrão da aplicação*/
-#todo-list,
 table, th, td {
-    border: 2px;
+    border: none;
     
   }
   
@@ -111,8 +110,8 @@ table, th, td {
     display: table;
   }
   
-  table.bordered > thead > tr,
-  table.bordered > tbody > tr {
+  table#bordered > thead > tr,
+  table#bordered > tbody > tr {
     border-bottom: 1px solid #d0d0d0;
   }
   
@@ -124,11 +123,11 @@ table, th, td {
     border-radius: 0;
   }
   
-  table.highlight > tbody > tr {
+  #todo-list.highlight > tbody > tr {
     transition: background-color .25s ease;
   }
   
-  table.highlight > tbody > tr:hover {
+  #todo-list.highlight > tbody > tr:hover {
     background-color: #f2f2f2;
     color: rgba(74, 21, 110, 1);
     font-weight: bold;

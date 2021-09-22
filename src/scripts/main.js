@@ -1,23 +1,15 @@
-$(function(){
-	/* var operacao = "A"; //"A"=Adição; "E"=Edição
-	var indice_selecionado = -1; //Índice do item selecionado na lista */
+
+var operacao = "A";
+var indice_selecionado = -1; //Índice do item selecionado na lista */
 	
 // Recupera os dados armazenados e Converte string para objeto
   
-});
+
 var lTodos = localStorage.getItem("todos");
 lTodos = JSON.parse(lTodos);
 if(lTodos == null) // Caso não haja conteúdo, iniciamos um vetor vazio
 lTodos = [];
-  
-var completedButton = document.createElement("button");
-completedButton.innerHTML = "<i class='fas fa-check'></i>";
-completedButton.classList.add("check-btn");
-var trashButton = document.createElement("button");
-trashButton.innerHTML = "<i class='fas fa-trash'></i>";
-trashButton.classList.add("trash-btn");
-
-
+ 
 var timestamp = new Date();
 var date = new Date();
 
@@ -64,13 +56,20 @@ function Listar(){
       $("#todo-list tbody").append("<td>"+todoLi.createDate+"</td>");
       $("#todo-list tbody").append("<td>"+todoLi.deadlineDate+"</td>");
       $("#todo-list tbody").append("<td>"+todoLi.tag+"</td>");
-      $("#todo-list tbody").append("<td><button class='check-btn' onclick='check()'><i class='fas fa-check'></i></button></td>");
+      $("#todo-list tbody").append("<td><button class='check-btn' onclick='check()'><i class='fas fa-check'></i></button>  <button class='trash-btn' onclick='remove()'><i class='fas fa-trash'></i></button> </td>");
       $("#todo-list tbody").append("</tr>");
   }
 }
 
 
 function check(todoLi) {
-  todoLi.classList.toggle("completed");
+  
+  l.classList.toggle("completed");
 }
 
+function remove(){
+    lTodos.splice(indice_selecionado, 1);
+    localStorage.setItem("todos", JSON.stringify(lTodos));
+    alert("Registro excluído.");
+    Listar();
+}
