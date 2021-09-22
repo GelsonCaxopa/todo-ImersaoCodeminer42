@@ -100,9 +100,10 @@ button:hover {
 
 
 /* Parte retirada do Materialize css para a tabela e alterado para estar dentro do style padrão da aplicação*/
-
+#todo-list,
 table, th, td {
-    border: none;
+    border: 2px;
+    
   }
   
   table {
