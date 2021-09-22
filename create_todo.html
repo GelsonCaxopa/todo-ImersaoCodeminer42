@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="./src/scripts/teste.js"></script>    
     <button class="back-button" onclick="window.location.href='home_page.html'" >
-        <
+        <i class="fas fa-angle-left"></i>
     </button>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
@@ -23,16 +25,27 @@
     
         <div align = 'center'>
             <label>Descrição:</label><br>
-            <input type="text" class="description" maxlength="40" /><br><br>
+            <input type="text" id="description" maxlength="40" /><br><br>
             <label>Deadline:</label><br>
-            <input type="date" class="deadlineDate" maxlength="40" /><br>
-            
-            <br><button id="todo-button" type="submit">
+            <input type="date" id="deadlineDate" maxlength="40" /><br><br>
+            <select name="tags" id="tags">
+                <option value="casa">Casa</option>
+                <option value="trabalho">Trabalho</option>
+                <option value="escola/faculdade">Escola / faculdade</option>
+                <option value="mercado">Mercado</option>
+                <option value="carro">Carro</option>
+              </select> <br><br>
+            <br><button id="todo-button" onclick="createTodo()">
                 <i class="fas fa-plus-square"></i>
             </button><br>
                      
         </div>
+
+        <table id="todo-list">
+        </table>
+         
            
-        
+    
 </body>
+
 </html>
