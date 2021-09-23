@@ -1,12 +1,12 @@
-
-var operacao = "A";
-var indice_selecionado = -1; //Índice do item selecionado na lista */
-	
-// Recupera os dados armazenados e Converte string para objeto
-  
-
+/* $(function(){
+    var operacao = "A"; //"A"=Adição; "E"=Edição
+    var indice_selecionado = -1; //Índice do item selecionado na lista
+});  */
+var operacao = "A"; //"A"=Adição; "E"=Edição
+var indice_selecionado = -1;
 var lTodos = localStorage.getItem("todos");
 lTodos = JSON.parse(lTodos);
+
 if(lTodos == null) // Caso não haja conteúdo, iniciamos um vetor vazio
 lTodos = [];
  
@@ -23,6 +23,7 @@ function createTodo(){
           createDate: date.getDate().toString() + '/' + (date.getMonth()+1).toString() + '/' + date.getFullYear().toString(),
           deadlineDate: $("#deadlineDate").val(),
           tag: $("#tags").val(),
+          status: 'Incompleto',
   });
   console.log(todo);
 
@@ -38,33 +39,38 @@ function Listar(){
   $("#todo-list").html("");
   $("#todo-list").html(
     "<thead>"+
-        "   <tr>"+
-        "   <th>Descrição</th>"+
-        "   <th>Data de criação</th>"+
-        "   <th>Data de Deadline</th>"+
-        "   <th>Tag</th>"+
-        "   <th></th>"+  
-        "   </tr>"+
+        "<tr>"+
+        "<th>Descrição</th>"+
+        "<th>Data de criação</th>"+
+        "<th>Data de Deadline</th>"+
+        "<th>Tag</th>"+
+        "<th>Status</th>"+
+        "<th></th>"+  
+        "</tr>"+
         "</thead>"+
         "<tbody>"+
         "</tbody>"
         );
+    console.log('teste');
   for(var i in lTodos){
       var todoLi = JSON.parse(lTodos[i]);
-      $("#todo-list tbody").append("<tr class='todoLi'>");
+      $("#todo-list tbody").append("<tr class='todo'>");
       $("#todo-list tbody").append("<td>"+todoLi.description+"</td>");
       $("#todo-list tbody").append("<td>"+todoLi.createDate+"</td>");
       $("#todo-list tbody").append("<td>"+todoLi.deadlineDate+"</td>");
       $("#todo-list tbody").append("<td>"+todoLi.tag+"</td>");
-      $("#todo-list tbody").append("<td><button class='check-btn' onclick='check()'><i class='fas fa-check'></i></button>  <button class='trash-btn' onclick='remove()'><i class='fas fa-trash'></i></button> </td>");
+      $("#todo-list tbody").append("<td>"+todoLi.status+"</td>");
+      $("#todo-list tbody").append("<td><button class='check-btn' onclick='check()'><i class='fas fa-check'></i></button>  <button class='trash-btn' onclick='remove()'><i class='fas fa-trash'></i></button>  <button onClick='check()' class='btnEditar'><i class='fas fa-edit'></i></button></td>");
       $("#todo-list tbody").append("</tr>");
   }
 }
 
 
-function check(todoLi) {
-  
-  l.classList.toggle("completed");
+function check() {
+    lTodos.splice(indice_selecionado, 1);
+    localStorage.setItem("todos", JSON.stringify(lTodos));
+    status: 'Completo',
+    Listar();
 }
 
 function remove(){
@@ -73,3 +79,4 @@ function remove(){
     alert("Registro excluído.");
     Listar();
 }
+

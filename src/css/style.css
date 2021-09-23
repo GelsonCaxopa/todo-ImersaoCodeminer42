@@ -64,6 +64,29 @@ form {
 }
 
 
+
+#filter-button {
+    height: 60px;    
+    font-size: 1.8rem;
+    width: 120px;
+    border: none;
+
+    background: #f4f4f4;
+}
+
+#filter-button {
+    padding: 0.5rem 1rem;
+    color: rgba(74, 21, 110, 1);
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#filter-button:hover {
+    background: rgba(74, 21, 110, 1);
+    color: white;
+}
+
+
 button {
     height: 60px;    
     font-size: 1.8rem;
