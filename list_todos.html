@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript"  src="./src/scripts/list_todo.js" defer></script> 
     
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script src="./src/scripts/main.js"></script>
+    
 
     <button class="back-button" onclick="window.location.href='home_page.html'" >
         <i class="fas fa-angle-left"></i>
     </button>
+    <button id="newTodoButton" onclick="window.location.href='create_todo.html'" >
+        <i class="far fa-plus-square"></i>
+    </button>
+
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,17 +23,24 @@
             src="https://kit.fontawesome.com/e7ebc2fc39.js"
             crossorigin="anonymous"
     ></script>
+
     <title>Lista de Todos</title>
 </head>
-<body onload="Listar()"> 
+<body>
     <header>Lista de TODOS</header>
     
-    <div class="container" align='center'>
-    <button id="filter-button">Filtrar</button>
-    <table id="todo-list">
-       
-    </table>
+    
+     
+    <div align='center'>
+            
+        <ul class="todo-list">
+
+        </ul>
+    
     </div>
+    
+
+    
 </body>
 
 </html>

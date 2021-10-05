@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="./src/scripts/add_Todo.js" defer></script> 
+
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script src="./src/scripts/main.js"></script>    
+       
     <button class="back-button" onclick="window.location.href='home_page.html'" >
         <i class="fas fa-angle-left"></i>
     </button>
@@ -23,27 +25,35 @@
     </header>
 
     
-        <div align = 'center' id='formTodo'>
+    <div class ="container" align="center">
+        <form class="todo-form">
             <label>Descrição:</label><br>
-            <input type="text" id="description" maxlength="40" /><br><br>
+            <input type="text" class="description" maxlength="40" /><br><br>
             <label>Deadline:</label><br>
-            <input type="date" id="deadlineDate" maxlength="40" /><br><br>
-            <select name="tags" id="tags">
+            <input type="date" class="deadline" maxlength="40" /><br><br>
+            <label>Categoria:</label><br>
+            <select name="tags" class="tags">
                 <option value="casa">Casa</option>
                 <option value="trabalho">Trabalho</option>
                 <option value="escola/faculdade">Escola / faculdade</option>
                 <option value="mercado">Mercado</option>
                 <option value="carro">Carro</option>
               </select> <br><br>
-            <br><button id="todo-button" onclick="createTodo()">
+            <br><button type="submit" class="add-button" >
                 <i class="fas fa-plus-square"></i>
-            </button><br>
-        </div>             
+         </button>
+
+         
+        </form>
+
+      
+        </div>
+    </div>                  
             
                
              
          
-         
+
            
     
 </body>

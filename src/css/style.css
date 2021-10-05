@@ -25,8 +25,109 @@ body {
 }
 
 
+header {
+    text-shadow: 2px 2px 15px rgb(176, 230, 255);
+    font-size: 1.2rem;
+}
 
-#menu-button {
+header{
+    min-height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+  min-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.todo-form {
+  margin: 40px 0px;
+}
+.item{
+  width: 300px;
+  background-color: aqua;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 7px;
+}
+
+.checked { 
+  color: green;
+  background-color: blue;
+}
+
+
+  /*----------Buttons Styles------------*/
+
+  button {
+    height: 60px;    
+    font-size: 1.8rem;
+    width: 60px;
+    border: none;
+    border-radius: 5px;
+    background: #f4f4f4;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    color: rgba(74, 21, 110, 1);
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  button:hover {
+    background: rgba(74, 21, 110, 1);
+    color: white;
+  }
+  
+  
+  .edit,
+  .check,
+  .delete-button {
+    
+    font-size: 0.8rem;
+    height: 35px;    
+    width: 35px;
+    border: none;
+    border-radius: 5px;
+    background: #f4f4f4;
+    padding: 0.5rem 0.5rem;
+    color: rgba(74, 21, 110, 1);
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  b.delete-button {
+    padding: 0.5rem 1rem;
+    color: rgba(74, 21, 110, 1);
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .delete-button:hover {
+    background: rgba(74, 21, 110, 1);
+    color: white;
+  }
+  
+  
+  .tags,
+  .description,
+  .deadline{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;   
+   font-size: 1.2rem;
+   
+  }
+
+  #menu-button {
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     font-size: 1rem;
     border: none;
@@ -49,201 +150,14 @@ body {
     color: white;
 }
 
-header {
-    text-shadow: 2px 2px 15px rgb(176, 230, 255);
-    font-size: 1.2rem;
-}
-
-header,
-
-form {
-    min-height: 25vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
 
 #filter-button {
-    height: 60px;    
-    font-size: 1.8rem;
-    width: 120px;
-    border: none;
+  height: 60px;    
+  font-size: 1.8rem;
+  width: 120px;
+  border: none;
 
-    background: #f4f4f4;
-}
-
-#filter-button {
-    padding: 0.5rem 1rem;
-    color: rgba(74, 21, 110, 1);
-    background: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-#filter-button:hover {
-    background: rgba(74, 21, 110, 1);
-    color: white;
+  background: #f4f4f4;
 }
 
 
-button {
-    height: 60px;    
-    font-size: 1.8rem;
-    width: 60px;
-    border: none;
-
-    background: #f4f4f4;
-}
-
-button {
-    padding: 0.5rem 1rem;
-    color: rgba(74, 21, 110, 1);
-    background: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-button:hover {
-    background: rgba(74, 21, 110, 1);
-    color: white;
-}
-#tags,
-#description,
-#deadlineDate{
-    
- font-size: 1.2rem;
-
-
-}
-
-.completed {
-    opacity: 0.6;
-    text-decoration: line-through;
-}  
-
-
-/* Parte retirada do Materialize css para a tabela e alterado para estar dentro do style padrão da aplicação*/
-table, th, td {
-    border: none;
-    
-  }
-  
-  table {
-    width: 100%;
-    display: table;
-  }
-  
-  table#bordered > thead > tr,
-  table#bordered > tbody > tr {
-    border-bottom: 1px solid #d0d0d0;
-  }
-  
-  table.striped > tbody > tr:nth-child(odd) {
-    background-color: rgb(104, 43, 145);
-  }
-  
-  table.striped > tbody > tr > td {
-    border-radius: 0;
-  }
-  
-  #todo-list.highlight > tbody > tr {
-    transition: background-color .25s ease;
-  }
-  
-  #todo-list.highlight > tbody > tr:hover {
-    background-color: #f2f2f2;
-    color: rgba(74, 21, 110, 1);
-    font-weight: bold;
-  }
-  
-  table.centered thead tr th, table.centered tbody tr td {
-    text-align: center;
-  }
-  
-  thead {
-    border-bottom: 1px solid #d0d0d0;
-  }
-  
-  td, th {
-    padding: 15px 5px;
-    display: table-cell;
-    text-align: left;
-    vertical-align: middle;
-    border-radius: 2px;
-  }
-  
-  @media only screen and (max-width: 992px) {
-    table.responsive-table {
-      width: 100%;
-      border-collapse: collapse;
-      border-spacing: 0;
-      display: block;
-      position: relative;
-      /* sort out borders */
-    }
-    table.responsive-table td:empty:before {
-      content: '\00a0';
-    }
-    table.responsive-table th,
-    table.responsive-table td {
-      margin: 0;
-      vertical-align: top;
-    }
-    table.responsive-table th {
-      text-align: left;
-    }
-    table.responsive-table thead {
-      display: block;
-      float: left;
-    }
-    table.responsive-table thead tr {
-      display: block;
-      padding: 0 10px 0 0;
-    }
-    table.responsive-table thead tr th::before {
-      content: "\00a0";
-    }
-    table.responsive-table tbody {
-      display: block;
-      width: auto;
-      position: relative;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-    table.responsive-table tbody tr {
-      display: inline-block;
-      vertical-align: top;
-    }
-    table.responsive-table th {
-      display: block;
-      text-align: right;
-    }
-    table.responsive-table td {
-      display: block;
-      min-height: 1.25em;
-      text-align: left;
-    }
-    table.responsive-table tr {
-      padding: 0 10px;
-    }
-    table.responsive-table thead {
-      border: 0;
-      border-right: 1px solid #d0d0d0;
-    }
-    table.responsive-table.bordered th {
-      border-bottom: 0;
-      border-left: 0;
-    }
-    table.responsive-table.bordered td {
-      border-left: 0;
-      border-right: 0;
-      border-bottom: 0;
-    }
-    table.responsive-table.bordered tr {
-      border: 0;
-    }
-    table.responsive-table.bordered tbody tr {
-      border-right: 1px solid #d0d0d0;
-    }
-  }
-  
