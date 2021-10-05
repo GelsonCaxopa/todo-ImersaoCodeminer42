@@ -28,19 +28,30 @@
 </head>
 <body>
     <header>Lista de TODOS</header>
-    
-    
-     
-    <div align='center'>
-            
-        <ul class="todo-list">
+      
+   
+    <ul class="todo-list container" ></ul>
+   
 
-        </ul>
-    
-    </div>
-    
-
-    
 </body>
+
+<div id="modal-promocao" class="modal-container">
+    <div class="modal">
+        <button class="fechar"><i class="fas fa-times"></i> </button>
+        <h3>Editando</h3><br><br>
+        <form>
+            <input type="text" class="descriptione">
+            <input type="date" class="deadlinee">
+            <select name="tags" class="tagse" val>
+                <option value="casa">Casa</option>
+                <option value="trabalho">Trabalho</option>
+                <option value="escola/faculdade">Escola / faculdade</option>
+                <option value="mercado">Mercado</option>
+                <option value="carro">Carro</option>
+              </select> <br><br>
+            <input type="button" class="salvar" value="Salvar" onclick="salvar()">
+        </form>
+    </div>
+</div>
 
 </html>
