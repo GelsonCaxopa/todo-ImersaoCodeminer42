@@ -3,6 +3,14 @@ const descriptione = document.querySelector('.descriptione');
 const deadline = document.querySelector('.deadlinee');
 const tag = document.querySelector('.tagse');
 const modal = document.querySelector('.modal-container');
+const check = document.querySelector('.todo-list-check');
+const filterTodo = document.querySelector('.filter_todo');
+
+
+var filter = false;
+
+/*   Fazer uma função para ver se a class principal esta com filtro ou nao e assim rodar a função render ou filter */
+
 
 
 
@@ -20,26 +28,31 @@ function renderTodos(todos) {
       if (item.completed === true) {
         div.classList.add('checked');
         item.status = 'Completo';
+        check.append(div);  
+
       }else{
-          item.status = 'Incompleto';
+        item.status = 'Incompleto';
+        todoItemsList.append(div);
       }
 
+      
      
   
       div.innerHTML = `
       
-      <div><label><i class="fas fa-align-justify"></i>&nbsp&nbsp${item.description}</label></div>
-      <div><i class="fas fa-calendar-plus"></i>&nbsp&nbsp${item.createDate}</div>
-      <div><i class="fas fa-calendar-times"></i>&nbsp&nbsp${item.deadline}</div>
-      <div><i class="fas fa-tag"></i>&nbsp&nbsp${item.tags}</div>
-      <div><i class="fas fa-info"></i>&nbsp&nbsp${item.status}</div><br>
+      <div class="todoItem"> <i class="fas fa-align-justify"></i><br>${item.description}</div>
+      <div class="todoItem"> <i class="fas fa-calendar-plus"></i><br>${item.createDate}</div>
+      <div class="todoItem"><i class="fas fa-calendar-times"></i><br>${item.deadline}</div>
+      <div class="todoItem"><i class="fas fa-tag"></i><br>${item.tags}</div>
+      <div class="todoItem"><i class="fas fa-info"></i><br>${item.status}</div><br>
+      
       <button class="edit"><i class="fas fa-edit"></i></button>
-      <button class='delete-button' type="submit"><i class='fas fa-trash'></i> </button>
+      <button class="delete-button" type="submit"><i class='fas fa-trash'></i> </button>
       <button class='check' ${checked} type="submit" ><i class='fas fa-check'></i></button>
       
       `;
       
-      todoItemsList.append(div);
+      
     });
   
 }
@@ -86,14 +99,16 @@ function edit(id) {
   todos.forEach(function(item) {
     if (item.id == id) {
       modal.classList.add("mostrar")     
-      item.description = descriptione.value;
+          
     }  
-      
-  
-
 }
 );
   
+}
+
+
+
+function fecharModal(){
   
 }
 
@@ -101,6 +116,7 @@ function edit(id) {
 function salvar(){
   localStorage.setItem('todos', JSON.stringify(todos));
   renderTodos(todos);
+  fecharModal();
 }
 
   
@@ -114,9 +130,30 @@ todoItemsList.addEventListener('click', function(event) {
     }
     if (event.target.classList.contains('edit')) {
       edit(event.target.parentElement.getAttribute('data-key'));
+    }
+  
+    if (event.target.classList.contains('filter-button')) {
+      filterTodo(event.target.parentElement.getAttribute('data-key'));
     }  
-    
+});
+
+check.addEventListener('click', function(event) {
+  if (event.target.classList.contains('check')) {
+    toggle(event.target.parentElement.getAttribute('data-key'));
+  }
+
+  if (event.target.classList.contains('delete-button')) {
+    deleteTodo(event.target.parentElement.getAttribute('data-key'));
+  }
+  if (event.target.classList.contains('edit')) {
+    edit(event.target.parentElement.getAttribute('data-key'));
+  }
+
+  if (event.target.classList.contains('filter-button')) {
+    filterTodo(event.target.parentElement.getAttribute('data-key'));
+  }  
 });   
+
 
 
 

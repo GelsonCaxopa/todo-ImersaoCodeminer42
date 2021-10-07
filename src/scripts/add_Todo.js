@@ -33,7 +33,8 @@ function addTodo(item) {
     };
     
     todos.push(todo);
-    addToLocalStorage(todos); 
+    addToLocalStorage(todos);
+    window.location.href='list_todos.html'
     todoInput.value = '';
   }
 }
@@ -43,8 +44,7 @@ function addToLocalStorage(todos) {
 
   localStorage.setItem('todos', JSON.stringify(todos));
   alert('Todo cadastrada com sucesso.');
-  window.location.href='list_todos.html'
-
+  
 }
 
 function getFromLocalStorage() {

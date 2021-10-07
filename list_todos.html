@@ -28,16 +28,32 @@
 </head>
 <body>
     <header>Lista de TODOS</header>
-      
+    
+    <div class="filter" align="center">
+        <select name="todos" class="filter_todo">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+        </select></div><br><br>
    
-    <ul class="todo-list container" ></ul>
+    <div align="center"><ul class="todo-list container" ></ul></div>
+
+
+        <br><br>
+        <h1 align="center">------------Completas-------------</h1>
+        <br><br>
+
    
+    <ul class="todo-list-check container" align="center"></ul>
 
 </body>
 
+
+
+
 <div id="modal-promocao" class="modal-container">
     <div class="modal">
-        <button class="fechar"><i class="fas fa-times"></i> </button>
+        <button class="fechar" onclick="fecharModal()"><i class="fas fa-times"></i> </button>
         <h3>Editando</h3><br><br>
         <form>
             <input type="text" class="descriptione">
